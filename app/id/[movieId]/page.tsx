@@ -14,13 +14,12 @@ function MovieDetailPage({ params: { movieId } }: Props) {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://www.omdbapi.com/?i=${movieId}&apikey=a5a42526`
+          `http://www.omdbapi.com/?i=${movieId}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
         );
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await res.json();
-        console.log(data);
         setMovieData(data);
       } catch (error) {
         console.error(error);
@@ -127,7 +126,7 @@ function MovieDetailPage({ params: { movieId } }: Props) {
               <p>
                 <span>Country:</span> {movieData.Country}
               </p>
-              <p className="flex">
+              <div className="flex text-white">
                 <span>Ratings:&nbsp;</span>
                 <ul>
                   {movieData.Ratings.map(
@@ -138,7 +137,7 @@ function MovieDetailPage({ params: { movieId } }: Props) {
                     )
                   )}
                 </ul>
-              </p>
+              </div>
 
               <p>
                 <span>Metascore:</span> {movieData.Metascore}
