@@ -13,7 +13,7 @@ function MovieDetailPage({ params: { movieId } }: Props) {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://www.omdbapi.com/?i=${movieId}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
+          `https://www.omdbapi.com/?i=${movieId}&apikey=a5a42526`
         );
         if (!res.ok) {
           throw new Error("Failed to fetch data");
