@@ -2,12 +2,12 @@
 import ResultSearchBar from "@/app/components/ResultSearchBar";
 import React, { useEffect, useState } from "react";
 
-type Props = {
+interface Props {
   params: {
     movieId: string;
   };
   id: string;
-};
+}
 function MovieDetailPage({ params: { movieId } }: Props) {
   const [movieData, setMovieData] = useState<any>(null);
   useEffect(() => {
